@@ -23,20 +23,3 @@
   }
 ]
 
-Pasos en GitHub:
-Ve a https://github.com/new
-Nombre del repo: tiendavida
-Marca: Public
-Click "Create repository"
-Dentro del repo → "Add file" → "Create new file"
-Nombre: index.html
-Pega el código completo
-Commit
-"Add file" → "Create new file" otra vez
-Nombre: products.json
-Pega el JSON de productos
-Commit
-Ve a Settings → Pages
-Source: "Deploy from a branch"
-Branch: main
-Save

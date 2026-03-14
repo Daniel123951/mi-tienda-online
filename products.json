@@ -1,1 +1,42 @@
+[
+  {
+    "name": "Audífonos Bluetooth",
+    "category": "Electrónica",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
+    "description": "Audífonos inalámbricos de alta calidad",
+    "stock": 15,
+    "price_retail": 29.99,
+    "price_wholesale": 24.99,
+    "features": "Bluetooth 5.0, 20h batería, Micrófono",
+    "featured": true
+  },
+  {
+    "name": "Cable USB-C",
+    "category": "Accesorios",
+    "image": "https://images.unsplash.com/photo-1594787318286-3d835c1cab83?w=400",
+    "description": "Cable de carga rápida",
+    "stock": 50,
+    "price_retail": 12.99,
+    "price_wholesale": 10.99,
+    "features": "Carga rápida, 2 metros",
+    "featured": false
+  }
+]
 
+Pasos en GitHub:
+Ve a https://github.com/new
+Nombre del repo: tiendavida
+Marca: Public
+Click "Create repository"
+Dentro del repo → "Add file" → "Create new file"
+Nombre: index.html
+Pega el código completo
+Commit
+"Add file" → "Create new file" otra vez
+Nombre: products.json
+Pega el JSON de productos
+Commit
+Ve a Settings → Pages
+Source: "Deploy from a branch"
+Branch: main
+Save

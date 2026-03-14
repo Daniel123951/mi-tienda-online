@@ -134,28 +134,25 @@
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
  </head>
  <body class="bg-gray-50 text-gray-900">
-  <div id="app" class="w-full h-full flex flex-col">
-   <!-- Header eBay Style -->
+  <div id="app" class="w-full h-full flex flex-col"><!-- Header eBay Style -->
    <header class="ebay-header sticky top-0 z-40 shadow-md">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
      <div class="flex items-center gap-3">
-      <div class="ebay-logo"><span class="red">T</span><span class="yellow">i</span><span class="blue">e</span><span class="green">n</span><span class="red">d</span><span class="yellow">a</span><span class="blue">V</span><span class="green">i</span><span class="red">d</span><span class="yellow">a</span>
+      <div class="ebay-logo">
+       <span class="red">T</span><span class="yellow">i</span><span class="blue">e</span><span class="green">n</span><span class="red">d</span><span class="yellow">a</span><span class="blue">V</span><span class="green">i</span><span class="red">d</span><span class="yellow">a</span>
       </div>
      </div>
-     <div class="flex items-center gap-4">
-      <button id="cart-btn" class="relative p-2 hover:bg-gray-100 rounded-lg transition border-2 border-gray-300 hover:border-red-600"> <i data-lucide="shopping-cart" style="width: 24px; height: 24px;"></i> <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">0</span> </button> <button id="admin-btn" class="p-2 hover:bg-gray-100 rounded-lg transition border-2 border-gray-300 hover:border-red-600"> <i data-lucide="shield-lock" style="width: 24px; height: 24px;"></i> </button>
+     <div class="flex items-center gap-4"><button id="cart-btn" class="relative p-2 hover:bg-gray-100 rounded-lg transition border-2 border-gray-300 hover:border-red-600"> <i data-lucide="shopping-cart" style="width: 24px; height: 24px;"></i> <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">0</span> </button> <button id="admin-btn" class="p-2 hover:bg-gray-100 rounded-lg transition border-2 border-gray-300 hover:border-red-600"> <i data-lucide="shield-lock" style="width: 24px; height: 24px;"></i> </button>
      </div>
     </div>
    </header><!-- Main Content -->
    <main class="flex-1 overflow-auto">
-    <div class="max-w-7xl mx-auto px-4 py-8">
-     <!-- Hero Section -->
+    <div class="max-w-7xl mx-auto px-4 py-8"><!-- Hero Section -->
      <div class="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg p-8 mb-8 fade-in shadow-lg">
       <h2 class="text-4xl font-bold mb-2">🛍️ Bienvenido a TiendaVida</h2>
       <p class="text-lg opacity-95">Los mejores productos con los mejores precios • Bolívares y Dólares • Envíos a todo Venezuela</p>
      </div><!-- Search & Filter -->
-     <div class="mb-8 flex gap-4 flex-wrap">
-      <input type="text" id="search-input" placeholder="🔍 Buscar productos..." class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"> <select id="category-filter" class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"> <option value="">📂 Todas las categorías</option> </select>
+     <div class="mb-8 flex gap-4 flex-wrap"><input type="text" id="search-input" placeholder="🔍 Buscar productos..." class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"> <select id="category-filter" class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"> <option value="">📂 Todas las categorías</option> </select>
      </div><!-- Products Grid -->
      <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="col-span-full text-center py-12">
@@ -181,11 +178,11 @@
      <p class="text-gray-500 text-center py-12">El carrito está vacío</p>
     </div>
     <div class="border-t border-gray-200 p-6 space-y-4">
-     <div class="flex justify-between items-center text-lg font-bold">
-      <span>Total USD:</span> <span id="cart-total-usd">$0.00</span>
+     <div class="flex justify-between items-center text-lg font-bold"><span>Total USD:</span> <span id="cart-total-usd">$0.00</span>
      </div>
-     <div class="flex justify-between items-center text-lg font-bold text-purple-600">
-      <span>Total Bs:</span> <span id="cart-total-bs">Bs 0.00</span>
+     <div class="bg-yellow-50 border-l-4 border-yellow-500 p-3 rounded text-xs text-gray-700">
+      <p class="font-bold">🇻🇪 Conversión a Bolívares:</p>
+      <p>Se cobrará a la <strong>tasa BCV del día</strong> vigente</p>
      </div><button class="w-full btn-primary text-white py-3 rounded-lg font-bold" onclick="checkout()"> Procesar Compra </button>
     </div>
    </div>
@@ -195,43 +192,49 @@
     <div class="p-6 border-b border-gray-200 flex justify-between items-center">
      <h2 class="text-2xl font-bold flex items-center gap-2"><i data-lucide="lock" style="width: 28px; height: 28px;"></i> Panel de Administración</h2><button onclick="closeAdmin()" class="p-2 hover:bg-gray-100 rounded-lg"> <i data-lucide="x" style="width: 24px; height: 24px;"></i> </button>
     </div>
-    <div id="admin-content" class="flex-1 overflow-auto p-6">
-     <!-- Login Form -->
+    <div id="admin-content" class="flex-1 overflow-auto p-6"><!-- Login Form -->
      <div id="admin-login" class="space-y-4">
-      <div>
-       <label class="block text-sm font-bold mb-2">Contraseña Admin</label> <input type="password" id="admin-password" placeholder="Ingresa tu contraseña" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+      <div><label class="block text-sm font-bold mb-2">Contraseña Admin</label> <input type="password" id="admin-password" placeholder="Ingresa tu contraseña" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
       </div><button onclick="adminLogin()" class="w-full btn-primary text-white py-2 rounded-lg font-bold"> Entrar </button>
      </div><!-- Admin Dashboard (hidden initially) -->
-     <div id="admin-dashboard" class="hidden space-y-6">
-      <!-- GitHub Sync Section -->
+     <div id="admin-dashboard" class="hidden space-y-6"><!-- GitHub Sync Section -->
       <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
        <h3 class="font-bold text-lg mb-4 flex items-center gap-2"><i data-lucide="github" style="width: 20px; height: 20px;"></i> Sincronización GitHub</h3>
        <div class="space-y-3 text-sm">
-        <div>
-         <label class="block font-bold mb-1">Token GitHub</label> <input type="password" id="github-token" placeholder="ghp_..." class="w-full px-3 py-2 border border-gray-300 rounded text-sm">
+        <div><label class="block font-bold mb-1">Token GitHub</label> <input type="password" id="github-token" placeholder="ghp_..." class="w-full px-3 py-2 border border-gray-300 rounded text-sm">
         </div>
         <div class="grid grid-cols-2 gap-2">
-         <div>
-          <label class="block font-bold mb-1">Usuario</label> <input type="text" id="github-user" placeholder="Daniel123951" class="w-full px-3 py-2 border border-gray-300 rounded text-sm">
+         <div><label class="block font-bold mb-1">Usuario</label> <input type="text" id="github-user" placeholder="Daniel123951" class="w-full px-3 py-2 border border-gray-300 rounded text-sm">
          </div>
-         <div>
-          <label class="block font-bold mb-1">Repo</label> <input type="text" id="github-repo" placeholder="tiendavida" class="w-full px-3 py-2 border border-gray-300 rounded text-sm">
+         <div><label class="block font-bold mb-1">Repo</label> <input type="text" id="github-repo" placeholder="tiendavida" class="w-full px-3 py-2 border border-gray-300 rounded text-sm">
          </div>
         </div>
-        <div class="flex gap-2">
-         <button onclick="downloadFromGithub()" class="flex-1 bg-blue-600 text-white py-2 rounded font-bold text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2"> <i data-lucide="download" style="width: 16px; height: 16px;"></i> Descargar </button> <button onclick="uploadToGithub()" class="flex-1 bg-green-600 text-white py-2 rounded font-bold text-sm hover:bg-green-700 transition flex items-center justify-center gap-2"> <i data-lucide="upload" style="width: 16px; height: 16px;"></i> Subir </button>
+        <div class="flex gap-2"><button onclick="downloadFromGithub()" class="flex-1 bg-blue-600 text-white py-2 rounded font-bold text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2"> <i data-lucide="download" style="width: 16px; height: 16px;"></i> Descargar </button> <button onclick="uploadToGithub()" class="flex-1 bg-green-600 text-white py-2 rounded font-bold text-sm hover:bg-green-700 transition flex items-center justify-center gap-2"> <i data-lucide="upload" style="width: 16px; height: 16px;"></i> Subir </button>
         </div>
        </div>
       </div><!-- Add Product Section -->
       <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
        <h3 class="font-bold text-lg mb-4">Agregar Producto</h3>
        <div class="space-y-3 text-sm">
-        <input type="text" id="prod-name" placeholder="Nombre" class="w-full px-3 py-2 border border-gray-300 rounded"> <input type="text" id="prod-category" placeholder="Categoría" class="w-full px-3 py-2 border border-gray-300 rounded"> <input type="text" id="prod-image" placeholder="URL de imagen" class="w-full px-3 py-2 border border-gray-300 rounded"> <textarea id="prod-description" placeholder="Descripción" class="w-full px-3 py-2 border border-gray-300 rounded" rows="2"></textarea>
-        <div class="grid grid-cols-2 gap-2">
-         <input type="number" id="prod-stock" placeholder="Stock" class="w-full px-3 py-2 border border-gray-300 rounded" value="10"> <input type="number" id="prod-price-retail" placeholder="Precio retail" class="w-full px-3 py-2 border border-gray-300 rounded" value="0">
+        <div><label class="block font-bold text-gray-700 mb-1">📝 Nombre</label> <input type="text" id="prod-name" placeholder="Ej: Auriculares Bluetooth" class="w-full px-3 py-2 border border-gray-300 rounded">
+        </div>
+        <div><label class="block font-bold text-gray-700 mb-1">📂 Categoría</label> <input type="text" id="prod-category" placeholder="Ej: Electrónica" class="w-full px-3 py-2 border border-gray-300 rounded">
+        </div>
+        <div><label class="block font-bold text-gray-700 mb-1">🖼️ URL de imagen</label> <input type="text" id="prod-image" placeholder="https://..." class="w-full px-3 py-2 border border-gray-300 rounded">
+        </div>
+        <div><label class="block font-bold text-gray-700 mb-1">📋 Descripción</label> <textarea id="prod-description" placeholder="Describe el producto..." class="w-full px-3 py-2 border border-gray-300 rounded" rows="2"></textarea>
         </div>
         <div class="grid grid-cols-2 gap-2">
-         <input type="number" id="prod-price-wholesale" placeholder="Precio mayoreo" class="w-full px-3 py-2 border border-gray-300 rounded" value="0"> <input type="text" id="prod-features" placeholder="Características" class="w-full px-3 py-2 border border-gray-300 rounded">
+         <div><label class="block font-bold text-gray-700 mb-1">📦 Stock</label> <input type="number" id="prod-stock" placeholder="Cantidad" class="w-full px-3 py-2 border border-gray-300 rounded" value="10">
+         </div>
+         <div><label class="block font-bold text-gray-700 mb-1">💵 Precio Detal</label> <input type="number" id="prod-price-retail" placeholder="$0.00" class="w-full px-3 py-2 border border-gray-300 rounded" value="0">
+         </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+         <div><label class="block font-bold text-gray-700 mb-1">💼 Precio Mayoreo</label> <input type="number" id="prod-price-wholesale" placeholder="$0.00" class="w-full px-3 py-2 border border-gray-300 rounded" value="0">
+         </div>
+         <div><label class="block font-bold text-gray-700 mb-1">📌 Características</label> <input type="text" id="prod-features" placeholder="Ej: Bluetooth, Color Rojo" class="w-full px-3 py-2 border border-gray-300 rounded">
+         </div>
         </div><button onclick="addProduct()" class="w-full bg-purple-600 text-white py-2 rounded font-bold hover:bg-purple-700 transition"> Agregar Producto </button>
        </div>
       </div><!-- Products List -->
@@ -249,7 +252,6 @@
   <script>
     let products = [];
     let cart = [];
-    let bcvRate = 36.50;
     let adminLogged = false;
 
     // Initialize
@@ -325,9 +327,9 @@
                 <span class="font-semibold text-gray-700">💼 Mayoreo:</span>
                 <span class="font-bold text-green-600">$${product.price_wholesale.toFixed(2)}</span>
               </div>
-              <div class="flex justify-between text-sm font-bold text-purple-700">
-                <span>🇻🇪 Bolívares:</span>
-                <span>Bs ${(product.price_retail * bcvRate).toFixed(2)}</span>
+              <div class="flex justify-between text-sm font-bold text-gray-500 italic">
+                <span>🇻🇪 Bs:</span>
+                <span>Tasa BCV del día</span>
               </div>
             </div>
             <div class="flex gap-2 mb-3">
@@ -400,10 +402,9 @@
       }
 
       const totalUSD = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      const totalBS = totalUSD * bcvRate;
 
       document.getElementById('cart-total-usd').textContent = `$${totalUSD.toFixed(2)}`;
-      document.getElementById('cart-total-bs').textContent = `Bs ${totalBS.toFixed(2)}`;
+      document.getElementById('cart-total-bs').textContent = 'Tasa BCV del día';
     }
 
     function openCart() {
@@ -423,12 +424,11 @@
       }
 
       const totalUSD = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      const totalBS = totalUSD * bcvRate;
       
       // Construir mensaje detallado para WhatsApp
       let cartDetails = cart.map(item => `• ${item.name} x${item.quantity} = $${(item.price * item.quantity).toFixed(2)}`).join('\n');
       
-      const message = `*📦 NUEVA COMPRA - TIENDAVIDA*\n\n${cartDetails}\n\n*Resumen:*\n💵 Total USD: $${totalUSD.toFixed(2)}\n💵 Total Bs: Bs ${totalBS.toFixed(2)}\n🇻🇪 Tasa BCV: ${bcvRate}`;
+      const message = `*📦 NUEVA COMPRA - TIENDAVIDA*\n\n${cartDetails}\n\n*Resumen:*\n💵 Total USD: $${totalUSD.toFixed(2)}\n🇻🇪 Cobro: A tasa BCV del día`;
       
       const encodedMessage = encodeURIComponent(message);
       const whatsappURL = `https://wa.me/584147825840?text=${encodedMessage}`;
@@ -457,7 +457,7 @@
       const password = document.getElementById('admin-password').value.trim();
       
       // Aceptar solo la contraseña en texto plano
-      if (password === 'admin123') {
+      if (password === 'Cafecaliente00') {
         adminLogged = true;
         document.getElementById('admin-login').classList.add('hidden');
         document.getElementById('admin-dashboard').classList.remove('hidden');
@@ -569,7 +569,7 @@
         price_retail: parseFloat(document.getElementById('prod-price-retail').value) || 0,
         price_wholesale: parseFloat(document.getElementById('prod-price-wholesale').value) || 0,
         features: document.getElementById('prod-features').value.trim(),
-        featured: document.getElementById('prod-featured').checked
+        featured: false
       };
 
       if (!product.name || !product.category) {
@@ -593,7 +593,6 @@
       document.getElementById('prod-price-retail').value = '10';
       document.getElementById('prod-price-wholesale').value = '8';
       document.getElementById('prod-features').value = '';
-      document.getElementById('prod-featured').checked = false;
 
       // Actualizar categorías disponibles
       updateCategoryFilter();
@@ -627,13 +626,31 @@
       }
 
       list.innerHTML = products.map(p => `
-        <div class="bg-white p-3 rounded border-l-4 border-red-600 flex justify-between items-center hover:bg-gray-50">
+        <div class="bg-white p-3 rounded border-l-4 border-red-600 flex justify-between items-start hover:bg-gray-50">
           <div class="flex-1">
             <p class="font-bold text-sm">${p.name} ${p.featured ? '⭐' : ''}</p>
-            <p class="text-xs text-gray-600">💵 Detal: $${p.price_retail} | 💼 Mayor: $${p.price_wholesale} | 📦 Stock: ${p.stock}</p>
-            <p class="text-xs text-gray-500">📂 ${p.category}</p>
+            <div class="grid grid-cols-2 gap-2 mt-2 text-xs">
+              <div class="bg-blue-50 p-2 rounded">
+                <p class="text-gray-600">💵 Precio Detal</p>
+                <p class="font-bold text-blue-600">$${p.price_retail.toFixed(2)}</p>
+              </div>
+              <div class="bg-green-50 p-2 rounded">
+                <p class="text-gray-600">💼 Precio Mayoreo</p>
+                <p class="font-bold text-green-600">$${p.price_wholesale.toFixed(2)}</p>
+              </div>
+              <div class="bg-purple-50 p-2 rounded">
+                <p class="text-gray-600">📦 Stock</p>
+                <p class="font-bold text-purple-600">${p.stock} unidades</p>
+              </div>
+              <div class="bg-orange-50 p-2 rounded">
+                <p class="text-gray-600">📂 Categoría</p>
+                <p class="font-bold text-orange-600">${p.category}</p>
+              </div>
+            </div>
+            <p class="text-xs text-gray-700 bg-yellow-50 p-2 rounded mt-2 border-l-2 border-yellow-500">📌 <strong>Características:</strong> ${p.features}</p>
+            <p class="text-xs text-gray-600 mt-2">📝 ${p.description}</p>
           </div>
-          <button onclick='deleteProduct("${p.name}")' class="text-red-600 text-xs font-bold hover:bg-red-100 px-2 py-1 rounded transition">🗑️ Eliminar</button>
+          <button onclick='deleteProduct("${p.name}")' class="text-red-600 text-xs font-bold hover:bg-red-100 px-2 py-1 rounded transition ml-2">🗑️ Eliminar</button>
         </div>
       `).join('');
     }
@@ -658,5 +675,5 @@
       setTimeout(() => toast.remove(), 3000);
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dc5601160a1da19',t:'MTc3MzUxMzI5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dc5990c55acda19',t:'MTc3MzUxNTYzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

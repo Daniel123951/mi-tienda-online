@@ -104,14 +104,18 @@ tailwind.config = {
   <style>body { box-sizing: border-box; }</style>
  </head>
  <body class="h-full bg-white text-navy-900">
-  <div id="app" class="h-full w-full overflow-auto"><!-- Toast container -->
+  <div id="app" class="h-full w-full overflow-auto">
+   <!-- Toast container -->
    <div id="toast-container" class="fixed top-4 right-4 z-[100] flex flex-col gap-2"></div><!-- Header -->
    <header id="site-header" class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-navy-100">
-    <div class="accent-gradient text-white text-center text-xs py-1.5 px-4"><span id="bcv-banner">Tasa BCV del día: <strong id="bcv-rate-display">36.50</strong> Bs. por USD</span>
+    <div class="accent-gradient text-white text-center text-xs py-1.5 px-4">
+     <span id="bcv-banner">Tasa BCV del día: <strong id="bcv-rate-display">36.50</strong> Bs. por USD</span>
     </div>
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-     <div class="flex items-center gap-3 min-w-0"><button onclick="showView('home')" class="flex items-center gap-2 min-w-0">
-       <div class="w-9 h-9 rounded-lg accent-gradient flex items-center justify-center flex-shrink-0"><i data-lucide="shopping-bag" class="w-5 h-5 text-white"></i>
+     <div class="flex items-center gap-3 min-w-0">
+      <button onclick="showView('home')" class="flex items-center gap-2 min-w-0">
+       <div class="w-9 h-9 rounded-lg accent-gradient flex items-center justify-center flex-shrink-0">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-white"></i>
        </div>
        <div class="min-w-0">
         <h1 id="store-name-display" class="font-display text-lg font-bold text-navy-900 truncate leading-tight">Mi Tienda</h1>
@@ -119,30 +123,37 @@ tailwind.config = {
        </div></button>
      </div><!-- Search bar (desktop) -->
      <div class="hidden md:flex flex-1 max-w-md mx-4">
-      <div class="relative w-full"><i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-400"></i> <input id="search-desktop" type="text" placeholder="Buscar productos..." oninput="handleSearch(this.value)" class="w-full pl-10 pr-4 py-2 rounded-full bg-navy-50 border border-navy-100 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300 transition">
+      <div class="relative w-full">
+       <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-400"></i> <input id="search-desktop" type="text" placeholder="Buscar productos..." oninput="handleSearch(this.value)" class="w-full pl-10 pr-4 py-2 rounded-full bg-navy-50 border border-navy-100 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300 transition">
       </div>
      </div>
-     <div class="flex items-center gap-2"><button id="admin-btn" onclick="requestAdminAccess()" class="p-2 rounded-full hover:bg-navy-50 transition" title="Admin Panel"> <i data-lucide="lock" class="w-5 h-5 text-navy-600"></i> </button> <button onclick="toggleCart()" class="relative p-2 rounded-full hover:bg-navy-50 transition" title="Carrito"> <i data-lucide="shopping-cart" class="w-5 h-5 text-navy-600"></i> <span id="cart-count" class="hidden absolute -top-0.5 -right-0.5 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center cart-badge">0</span> </button>
+     <div class="flex items-center gap-2">
+      <button id="admin-btn" onclick="requestAdminAccess()" class="p-2 rounded-full hover:bg-navy-50 transition" title="Admin Panel"> <i data-lucide="lock" class="w-5 h-5 text-navy-600"></i> </button> <button onclick="toggleCart()" class="relative p-2 rounded-full hover:bg-navy-50 transition" title="Carrito"> <i data-lucide="shopping-cart" class="w-5 h-5 text-navy-600"></i> <span id="cart-count" class="hidden absolute -top-0.5 -right-0.5 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center cart-badge">0</span> </button>
      </div>
     </div><!-- Search bar (mobile) -->
     <div class="md:hidden px-4 pb-3">
-     <div class="relative w-full"><i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-400"></i> <input id="search-mobile" type="text" placeholder="Buscar productos..." oninput="handleSearch(this.value)" class="w-full pl-10 pr-4 py-2 rounded-full bg-navy-50 border border-navy-100 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300 transition">
+     <div class="relative w-full">
+      <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-400"></i> <input id="search-mobile" type="text" placeholder="Buscar productos..." oninput="handleSearch(this.value)" class="w-full pl-10 pr-4 py-2 rounded-full bg-navy-50 border border-navy-100 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300 transition">
      </div>
     </div>
    </header><!-- Main content area -->
-   <main id="main-content" role="main"><!-- HOME VIEW -->
-    <div id="view-home"><!-- Hero -->
+   <main id="main-content" role="main">
+    <!-- HOME VIEW -->
+    <div id="view-home">
+     <!-- Hero -->
      <section class="accent-gradient-light py-10 md:py-16 px-4">
       <div class="max-w-7xl mx-auto text-center">
        <h2 class="font-display text-3xl md:text-5xl font-bold text-navy-900 mb-3 animate-fade-up">Bienvenido a <span id="hero-store-name">Mi Tienda</span></h2>
        <p class="text-navy-600 text-base md:text-lg max-w-xl mx-auto animate-fade-up stagger-1" id="hero-tagline">Los mejores productos al mejor precio</p>
-       <div class="mt-6 flex flex-wrap gap-3 justify-center animate-fade-up stagger-2"><button onclick="filterCategory('')" class="cat-btn px-5 py-2 rounded-full bg-navy-900 text-white text-sm font-medium hover:bg-navy-800 transition">Todos</button>
+       <div class="mt-6 flex flex-wrap gap-3 justify-center animate-fade-up stagger-2">
+        <button onclick="filterCategory('')" class="cat-btn px-5 py-2 rounded-full bg-navy-900 text-white text-sm font-medium hover:bg-navy-800 transition">Todos</button>
         <div id="category-buttons" class="flex flex-wrap gap-2 justify-center"></div>
        </div>
       </div>
      </section><!-- Featured Products -->
      <section id="featured-section" class="hidden max-w-7xl mx-auto px-4 py-8">
-      <div class="flex items-center gap-2 mb-5"><i data-lucide="star" class="w-5 h-5 text-amber-500"></i>
+      <div class="flex items-center gap-2 mb-5">
+       <i data-lucide="star" class="w-5 h-5 text-amber-500"></i>
        <h3 class="font-display text-xl font-bold text-navy-900">Productos Destacados</h3>
       </div>
       <div id="featured-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
@@ -152,11 +163,13 @@ tailwind.config = {
        <h3 class="font-display text-xl font-bold text-navy-900"><span id="products-heading">Todos los Productos</span> <span id="product-count" class="text-sm font-normal text-navy-400 ml-2"></span></h3><select id="sort-select" onchange="handleSort(this.value)" class="text-sm border border-navy-200 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:ring-2 focus:ring-navy-300"> <option value="default">Ordenar por</option> <option value="price-asc">Precio: menor a mayor</option> <option value="price-desc">Precio: mayor a menor</option> <option value="name-asc">Nombre: A-Z</option> <option value="name-desc">Nombre: Z-A</option> </select>
       </div>
       <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
-      <div id="no-products" class="hidden text-center py-16"><i data-lucide="package" class="w-16 h-16 text-navy-200 mx-auto mb-4"></i>
+      <div id="no-products" class="hidden text-center py-16">
+       <i data-lucide="package" class="w-16 h-16 text-navy-200 mx-auto mb-4"></i>
        <p class="text-navy-400 text-lg">No se encontraron productos</p>
        <p class="text-navy-300 text-sm mt-1">Intenta con otra búsqueda o categoría</p>
       </div>
-      <div id="empty-store" class="hidden text-center py-16"><i data-lucide="store" class="w-16 h-16 text-navy-200 mx-auto mb-4"></i>
+      <div id="empty-store" class="hidden text-center py-16">
+       <i data-lucide="store" class="w-16 h-16 text-navy-200 mx-auto mb-4"></i>
        <p class="text-navy-400 text-lg">La tienda está vacía</p>
        <p class="text-navy-300 text-sm mt-1">El dueño aún no ha agregado productos</p>
       </div>
@@ -165,55 +178,68 @@ tailwind.config = {
     <div id="view-admin" class="hidden">
      <div class="max-w-4xl mx-auto px-4 py-8">
       <div class="flex items-center justify-between mb-6">
-       <div class="flex items-center gap-3"><button onclick="showView('home')" class="p-2 rounded-full hover:bg-navy-50 transition"> <i data-lucide="arrow-left" class="w-5 h-5"></i> </button>
+       <div class="flex items-center gap-3">
+        <button onclick="showView('home')" class="p-2 rounded-full hover:bg-navy-50 transition"> <i data-lucide="arrow-left" class="w-5 h-5"></i> </button>
         <h2 class="font-display text-2xl font-bold">Panel de Administración</h2>
        </div><button onclick="logoutAdmin()" class="px-3 py-1.5 text-sm text-red-600 hover:bg-red-50 rounded-lg transition">Cerrar sesión</button>
       </div><!-- Sync Button -->
       <div class="bg-blue-50 border border-blue-200 rounded-2xl p-4 mb-6">
-       <div class="flex items-center gap-3"><i data-lucide="github" class="w-5 h-5 text-blue-600 flex-shrink-0"></i>
+       <div class="flex items-center gap-3">
+        <i data-lucide="github" class="w-5 h-5 text-blue-600 flex-shrink-0"></i>
         <div class="flex-1">
          <h4 class="font-semibold text-sm text-blue-900">Sincronización con GitHub</h4>
          <p class="text-xs text-blue-700 mt-0.5">Descarga o sube tus productos desde/hacia GitHub</p>
         </div>
-        <div class="flex gap-2 flex-shrink-0">
-         <button type="button" onclick="syncFromGitHub()" id="sync-down-btn" class="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition flex items-center gap-2"> <i data-lucide="download" class="w-4 h-4"></i> Descargar </button> <button type="button" onclick="syncToGitHub()" id="sync-up-btn" class="px-4 py-2 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700 transition flex items-center gap-2"> <i data-lucide="upload" class="w-4 h-4"></i> Subir </button>
+        <div class="flex gap-2 flex-shrink-0"><button type="button" onclick="syncFromGitHub()" id="sync-down-btn" class="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition flex items-center gap-2"> <i data-lucide="download" class="w-4 h-4"></i> Descargar </button> <button type="button" onclick="syncToGitHub()" id="sync-up-btn" class="px-4 py-2 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700 transition flex items-center gap-2"> <i data-lucide="upload" class="w-4 h-4"></i> Subir </button>
         </div>
        </div>
        <p class="text-[10px] text-blue-600 mt-2">💡 <strong>Descargar:</strong> Reemplaza todos los productos con los de GitHub. <strong>Subir:</strong> Guarda tus productos actuales en GitHub.</p>
       </div><!-- Admin form -->
       <div class="bg-white rounded-2xl border border-navy-100 shadow-sm p-6 mb-6">
        <h3 id="admin-form-title" class="font-semibold text-lg mb-4">Agregar Producto</h3>
-       <form id="product-form" onsubmit="handleProductSubmit(event)" class="space-y-4"><input type="hidden" id="edit-id" value="">
+       <form id="product-form" onsubmit="handleProductSubmit(event)" class="space-y-4">
+        <input type="hidden" id="edit-id" value="">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-         <div><label for="pf-name" class="block text-sm font-medium text-navy-700 mb-1">Nombre del Producto *</label> <input id="pf-name" type="text" required class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="Ej: Audífonos Bluetooth">
+         <div>
+          <label for="pf-name" class="block text-sm font-medium text-navy-700 mb-1">Nombre del Producto *</label> <input id="pf-name" type="text" required class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="Ej: Audífonos Bluetooth">
          </div>
-         <div><label for="pf-category" class="block text-sm font-medium text-navy-700 mb-1">Categoría *</label> <input id="pf-category" type="text" required class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="Ej: Electrónica">
+         <div>
+          <label for="pf-category" class="block text-sm font-medium text-navy-700 mb-1">Categoría *</label> <input id="pf-category" type="text" required class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="Ej: Electrónica">
          </div>
         </div>
-        <div><label for="pf-image" class="block text-sm font-medium text-navy-700 mb-1">URL de Imagen (Imgur direct link)</label> <input id="pf-image" type="url" class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="https://i.imgur.com/example.jpg">
+        <div>
+         <label for="pf-image" class="block text-sm font-medium text-navy-700 mb-1">URL de Imagen (Imgur direct link)</label> <input id="pf-image" type="url" class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="https://i.imgur.com/example.jpg">
         </div>
-        <div><label for="pf-desc" class="block text-sm font-medium text-navy-700 mb-1">Descripción</label> <textarea id="pf-desc" rows="2" class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300 resize-none" placeholder="Descripción del producto..."></textarea>
+        <div>
+         <label for="pf-desc" class="block text-sm font-medium text-navy-700 mb-1">Descripción</label> <textarea id="pf-desc" rows="2" class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300 resize-none" placeholder="Descripción del producto..."></textarea>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-         <div><label for="pf-stock" class="block text-sm font-medium text-navy-700 mb-1">Stock *</label> <input id="pf-stock" type="number" min="0" required class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="10">
+         <div>
+          <label for="pf-stock" class="block text-sm font-medium text-navy-700 mb-1">Stock *</label> <input id="pf-stock" type="number" min="0" required class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="10">
          </div>
-         <div><label for="pf-price" class="block text-sm font-medium text-navy-700 mb-1">Precio Detal (USD) *</label> <input id="pf-price" type="number" step="0.01" min="0" required class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="29.99">
+         <div>
+          <label for="pf-price" class="block text-sm font-medium text-navy-700 mb-1">Precio Detal (USD) *</label> <input id="pf-price" type="number" step="0.01" min="0" required class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="29.99">
          </div>
-         <div><label for="pf-wholesale" class="block text-sm font-medium text-navy-700 mb-1">Precio Mayorista (USD)</label> <input id="pf-wholesale" type="number" step="0.01" min="0" class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="24.99">
+         <div>
+          <label for="pf-wholesale" class="block text-sm font-medium text-navy-700 mb-1">Precio Mayorista (USD)</label> <input id="pf-wholesale" type="number" step="0.01" min="0" class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="24.99">
          </div>
         </div>
-        <div><label for="pf-features" class="block text-sm font-medium text-navy-700 mb-1">Características (separadas por coma)</label> <input id="pf-features" type="text" class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="Bluetooth 5.0, 20h batería, Micrófono">
+        <div>
+         <label for="pf-features" class="block text-sm font-medium text-navy-700 mb-1">Características (separadas por coma)</label> <input id="pf-features" type="text" class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300" placeholder="Bluetooth 5.0, 20h batería, Micrófono">
         </div>
-        <div class="flex items-center gap-2"><input id="pf-featured" type="checkbox" class="w-4 h-4 rounded border-navy-300 text-navy-600 focus:ring-navy-300"> <label for="pf-featured" class="text-sm text-navy-700">Producto Destacado</label>
+        <div class="flex items-center gap-2">
+         <input id="pf-featured" type="checkbox" class="w-4 h-4 rounded border-navy-300 text-navy-600 focus:ring-navy-300"> <label for="pf-featured" class="text-sm text-navy-700">Producto Destacado</label>
         </div>
-        <div class="flex gap-3 pt-2"><button type="submit" id="admin-submit-btn" class="px-6 py-2.5 rounded-xl accent-gradient text-white text-sm font-medium hover:opacity-90 transition flex items-center gap-2"> <i data-lucide="plus" class="w-4 h-4"></i> <span>Agregar Producto</span> </button> <button type="button" id="admin-cancel-btn" onclick="cancelEdit()" class="hidden px-6 py-2.5 rounded-xl border border-navy-200 text-navy-600 text-sm font-medium hover:bg-navy-50 transition">Cancelar</button>
+        <div class="flex gap-3 pt-2">
+         <button type="submit" id="admin-submit-btn" class="px-6 py-2.5 rounded-xl accent-gradient text-white text-sm font-medium hover:opacity-90 transition flex items-center gap-2"> <i data-lucide="plus" class="w-4 h-4"></i> <span>Agregar Producto</span> </button> <button type="button" id="admin-cancel-btn" onclick="cancelEdit()" class="hidden px-6 py-2.5 rounded-xl border border-navy-200 text-navy-600 text-sm font-medium hover:bg-navy-50 transition">Cancelar</button>
         </div>
        </form>
       </div><!-- Products list -->
       <div class="bg-white rounded-2xl border border-navy-100 shadow-sm p-6">
        <h3 class="font-semibold text-lg mb-4">Productos Registrados (<span id="admin-count">0</span>)</h3>
        <div id="admin-products-list" class="space-y-3"></div>
-       <div id="admin-empty" class="text-center py-8 text-navy-400"><i data-lucide="inbox" class="w-12 h-12 mx-auto mb-3 text-navy-200"></i>
+       <div id="admin-empty" class="text-center py-8 text-navy-400">
+        <i data-lucide="inbox" class="w-12 h-12 mx-auto mb-3 text-navy-200"></i>
         <p>No hay productos registrados aún</p>
        </div>
       </div>
@@ -228,17 +254,19 @@ tailwind.config = {
      </div>
      <div id="cart-items" class="flex-1 overflow-auto p-5 space-y-4"></div>
      <div id="cart-empty-msg" class="hidden flex-1 flex items-center justify-center text-center p-5">
-      <div><i data-lucide="shopping-bag" class="w-16 h-16 text-navy-200 mx-auto mb-4"></i>
+      <div>
+       <i data-lucide="shopping-bag" class="w-16 h-16 text-navy-200 mx-auto mb-4"></i>
        <p class="text-navy-400">Tu carrito está vacío</p>
       </div>
      </div>
      <div id="cart-footer" class="border-t border-navy-100 p-5 space-y-3">
-      <div class="flex justify-between text-sm text-navy-600"><span>Total Detal (USD)</span> <span id="cart-total-usd" class="font-bold text-navy-900">$0.00</span>
+      <div class="flex justify-between text-sm text-navy-600">
+       <span>Total Detal (USD)</span> <span id="cart-total-usd" class="font-bold text-navy-900">$0.00</span>
       </div>
-      <div class="flex justify-between text-sm text-navy-600"><span>Total en Bs. (BCV)</span> <span id="cart-total-bs" class="font-bold text-navy-900">Bs. 0.00</span>
+      <div class="flex justify-between text-sm text-navy-600">
+       <span>Total en Bs. (BCV)</span> <span id="cart-total-bs" class="font-bold text-navy-900">Bs. 0.00</span>
       </div><button id="checkout-btn" onclick="checkoutWhatsApp()" class="w-full py-3 rounded-xl bg-green-600 text-white font-semibold text-sm hover:bg-green-700 transition flex items-center justify-center gap-2">
-       <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.573-1.459A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.683-6.427-1.862l-.357-.227-2.898.925.962-2.832-.249-.379A9.946 9.946 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+       <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.573-1.459A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.683-6.427-1.862l-.357-.227-2.898.925.962-2.832-.249-.379A9.946 9.946 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
        </svg> Finalizar Pedido por WhatsApp </button>
       <p class="text-[10px] text-center text-navy-400">Venta calculada a tasa del Banco Central de Venezuela</p>
      </div>
@@ -246,16 +274,19 @@ tailwind.config = {
    </div><!-- Product Detail Modal -->
    <div id="product-modal" class="hidden fixed inset-0 z-[70] flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/50 animate-fade-in" onclick="closeProductModal()"></div>
-    <div class="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90%] overflow-auto animate-fade-up z-10"><button onclick="closeProductModal()" class="absolute top-4 right-4 p-2 rounded-full bg-white/80 hover:bg-navy-50 transition z-10"><i data-lucide="x" class="w-5 h-5"></i></button>
+    <div class="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90%] overflow-auto animate-fade-up z-10">
+     <button onclick="closeProductModal()" class="absolute top-4 right-4 p-2 rounded-full bg-white/80 hover:bg-navy-50 transition z-10"><i data-lucide="x" class="w-5 h-5"></i></button>
      <div id="modal-content"></div>
     </div>
    </div><!-- Delete Confirmation Inline -->
    <div id="delete-confirm" class="hidden fixed inset-0 z-[80] flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/40 animate-fade-in" onclick="cancelDelete()"></div>
-    <div class="relative bg-white rounded-2xl shadow-2xl p-6 max-w-sm w-full animate-fade-up z-10 text-center"><i data-lucide="alert-triangle" class="w-12 h-12 text-red-500 mx-auto mb-3"></i>
+    <div class="relative bg-white rounded-2xl shadow-2xl p-6 max-w-sm w-full animate-fade-up z-10 text-center">
+     <i data-lucide="alert-triangle" class="w-12 h-12 text-red-500 mx-auto mb-3"></i>
      <h3 class="font-bold text-lg mb-2">¿Eliminar producto?</h3>
      <p class="text-sm text-navy-500 mb-5">Esta acción no se puede deshacer.</p>
-     <div class="flex gap-3 justify-center"><button onclick="cancelDelete()" class="px-5 py-2 rounded-xl border border-navy-200 text-sm font-medium hover:bg-navy-50 transition">Cancelar</button> <button id="confirm-delete-btn" class="px-5 py-2 rounded-xl bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition">Eliminar</button>
+     <div class="flex gap-3 justify-center">
+      <button onclick="cancelDelete()" class="px-5 py-2 rounded-xl border border-navy-200 text-sm font-medium hover:bg-navy-50 transition">Cancelar</button> <button id="confirm-delete-btn" class="px-5 py-2 rounded-xl bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition">Eliminar</button>
      </div>
     </div>
    </div><!-- Admin Auth Modal -->
@@ -264,7 +295,8 @@ tailwind.config = {
     <div class="relative bg-white rounded-2xl shadow-2xl p-6 max-w-sm w-full animate-fade-up z-10">
      <h3 class="font-bold text-lg mb-1">Acceso al Panel Admin</h3>
      <p class="text-sm text-navy-400 mb-4">Ingresa la contraseña para continuar</p><input id="admin-pwd-input" type="password" placeholder="Contraseña" class="w-full px-4 py-2.5 rounded-xl border border-navy-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-300 mb-4" onkeypress="if(event.key==='Enter') submitAdminAuth()">
-     <div class="flex gap-3"><button onclick="closeAdminAuth()" class="flex-1 px-4 py-2 rounded-xl border border-navy-200 text-navy-600 text-sm font-medium hover:bg-navy-50 transition">Cancelar</button> <button onclick="submitAdminAuth()" class="flex-1 px-4 py-2 rounded-xl accent-gradient text-white text-sm font-medium hover:opacity-90 transition">Ingresar</button>
+     <div class="flex gap-3">
+      <button onclick="closeAdminAuth()" class="flex-1 px-4 py-2 rounded-xl border border-navy-200 text-navy-600 text-sm font-medium hover:bg-navy-50 transition">Cancelar</button> <button onclick="submitAdminAuth()" class="flex-1 px-4 py-2 rounded-xl accent-gradient text-white text-sm font-medium hover:opacity-90 transition">Ingresar</button>
      </div>
     </div>
    </div><!-- Footer -->
@@ -1050,23 +1082,44 @@ async function syncToGitHub() {
     lucide.createIcons();
   }
 }
-// Initialize Lucide icons after all scripts are loaded
+// Initialize Lucide icons - more aggressive approach
 function initializeLucide() {
   if (window.lucide && window.lucide.createIcons) {
-    lucide.createIcons();
+    try {
+      lucide.createIcons();
+      console.log('✓ Lucide icons initialized');
+    } catch (e) {
+      console.error('Error initializing lucide:', e);
+      setTimeout(initializeLucide, 200);
+    }
   } else {
-    setTimeout(initializeLucide, 100);
+    setTimeout(initializeLucide, 50);
   }
 }
 
-// Wait for DOM and scripts
+// Start immediately, don't wait for DOM
+initializeLucide();
+
+// Also initialize when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeLucide);
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(initializeLucide, 100);
+    updateCartCount();
+  });
 } else {
-  initializeLucide();
+  updateCartCount();
 }
 
-updateCartCount();
+// Re-initialize every 2 seconds for first 10 seconds to catch any new icons
+let initCount = 0;
+const initInterval = setInterval(() => {
+  if (initCount < 5) {
+    initializeLucide();
+    initCount++;
+  } else {
+    clearInterval(initInterval);
+  }
+}, 2000);
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dc4fa8d3659da19',t:'MTc3MzUwOTEzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dc4ffda1486da19',t:'MTc3MzUwOTM1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
